@@ -31,8 +31,11 @@ const library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 const printPlaylists = function() {
-
-}
+       for (const playlistId in library.playlists) {
+              const playlist = library.playlists[playlistId];
+              console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
+       }
+};
 
 
 // prints a list of all tracks, using the following format:
@@ -40,8 +43,11 @@ const printPlaylists = function() {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 const printTracks = function() {
-
-}
+       for (const trackId in library.tracks) {
+              const track = library.tracks[trackId];
+              console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`);
+       }
+};
 
 
 // prints a list of tracks for a given playlist, using the following format:
@@ -86,3 +92,6 @@ const addPlaylist = function(name) {
 const printSearchResults = function(query) {
 
 }
+
+printPlaylists(library);
+printTracks(library);
