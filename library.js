@@ -79,13 +79,17 @@ const generateUid = function() {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-
+       let newTrackId = `t${generateUid()}`;
+       
+       library.tracks[newTrackId] = { id: newTrackId, name: name, artist: artist, album: album };
 }
 
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
+       let newPlaylistId = `p${generateUid()}`;
 
+       library.playlists[newPlaylistId] = { id: newPlaylistId, name: name, tracks: []};
 }
 
 
@@ -102,4 +106,8 @@ const printSearchResults = function(query) {
 // printTracks(library);
 // addTrackToPlaylist("t03", "p01");
 // printPlaylists(library);
-printPlaylist("p01");
+// printPlaylist("p01");
+// addTrack("Yoshimi", "Flaming Lips", "Yoshimi");
+// printTracks(library);
+addPlaylist("Running");
+printPlaylists(library);
